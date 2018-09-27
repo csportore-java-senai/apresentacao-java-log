@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Java - Lógica de Programação</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+
+<!-- ################# MY CUSTOM FILES ################# -->
+  <!-- Estilo da tabela do JDK -->
+  <link rel="stylesheet" media="screen" href="css/jdk_style.css">
+  <!-- Minha customizacao de CSS -->
+  <link rel="stylesheet" media="screen" href="css/style.css">
+<!-- ################# MY CUSTOM FILES ################# -->
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/neon.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/vertical-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="modernizr.custom.js"></script>
+
+</head>
+<body>
+  <div class="deck-container">
+    <!-- TODO: Ler https://stackoverflow.com/questions/23792124/how-do-i-create-a-printer-friendly-html-page -->
+    <!-- Begin slides. Just make elements with a class of slide. -->
+
+    <section class="slide" id="cover">
+      <h1><span id="main_title">JAVA</span> 
+        <br/> Lógica de Programação </h1>
+    </section>
+    <!-- ====================================
+                    AULA 001 
+    ===================================== -->
+    <!-- SOBRE -->
+    <section class="slide" id="summary-1">
+        <h2>Sumário 1</h2>
+        <ul>
+            <li><a href="#about">Sobre o Java</a></li>
+            <li><a href="#companies">Beleza, mas quem usa Java?</a></li>
+            <li><a href="#how">Como ele funciona?</a></li>
+            <li><a href="#compiler-process">Fluxo do compilador</a></li>
+            <li><a href="#jvm-process">Fluxo da JVM</a></li>
+            <li><a href="#jdk8">Anatomia JDK 8</a></li>
+            <li><a href="#dir-structure1">Diretórios da JDK</a></li>
+            <li><a href="#operators">Operadores</a>
+                <ul>
+                    <li><a href="#arithmetical">Aritm&eacute;tico (+, -, *, /, %)</a></li>
+                    <li><a href="#attribution">Atribui&ccedil;&atilde;o (=, +=, -=, *=, /=, %=)</a></li>
+                    <li><a href="#relational">Relacional (==, !=, &lt;, &lt;=, &gt;, &gt;=)</a></li>
+                    <li><a href="#logical">Lógico (&amp;&amp;, ||, !)</a></li>
+                    <li><a href="#unary">Decremento/Incremento(--, ++)</a></li>
+                </ul>
+            </li>
+            <li><a href="#compiler-process">Fluxo do compilador</a></li>
+        </ul>
+    </section>
+
+    <section class="slide" id="about">
+        <h2>Sobre</h2>
+        <p>
+            Iniciado em Junho de 1991 por James Gosling, Mike Sheridan e Patrick Naughton o projeto da linguagem Java foi desenvolvido, 
+            inicialmente, para a televis&atilde;o interativa, e lan&ccedil;ado em 1995 como um componente central da plataforma Java da <em>Sun Microsystems</em>.
+        </p>
+        <p>
+            O desenvolvimento de aplicações passar por um problema bastante incômodo para quem financia os projetos, pois para cada sistema diferente em que 
+            eles querem que seu produto esteja disponível era preciso lidar com especificidades de cada arquitetura.
+        </p>
+        <p>
+            Daí veio o Java, que &eacute; uma linguagem de programa&ccedil;&atilde;o <strong>orientada a objeto</strong> e projetada para permitir 
+            aos desenvolvedores programarem <strong>uma vez</strong> e terem seu programa executado em <strong>diversos dispositivos</strong> 
+            (o famoso &quot;Write once, run anywhere&quot;).
+        </p>
+        <p>
+            A evolução da maior parte das tecnologias Java são feitas através de JSR (Java Specification Request), que são ideias debatidas
+            por pessoas importantes da área cujo resultado pode ser conferido através do site <a href="https://www.jcp.org/en/home/index">https://www.jcp.org/</a> (Java Community Process).
+        </p>
+    </section>
+
+    <section class="slide" id="companies">
+        <!-- source: https://www.youtube.com/watch?v=Zv8-hrGiGno -->
+        <!-- source: https://siftery.com/java em https://www.quora.com/What-companies-use-java -->
+        <h2>Beleza, mas quem usa Java?</h2>
+        <p>
+            A tecnologia Java é empregada em diversas empresas através de aplicações que precisam de velocidade, lidar com concorrência, robustez e produtividade.
+        </p>
+        <p>
+            Abaixo estão alguns exemplos:
+        </p>
+        <img src="img/companies/companies_using_java.png">
+        <p>
+            Dentro dessas e de outras empresas é possível achar a tecnologia Java sendo usada desde aplicações web até automações e equipamentos hospitalares.
+        </p>
+    </section>
+
+    <section class="slide" id="how">
+        <h2>Como ele funciona?</h2>
+        <p>
+            O c&oacute;digo Java &eacute; compilado para <em>bytecode</em> que, por sua vez, &eacute; interpretado pela JVM. Quem deve se preocupar com a plataforma onde o c&oacute;digo ser&aacute; executado, s&atilde;o os desenvolvedores da m&aacute;quina virtual.
+        </p>
+        <img width="464" height="104" src="img/about/reverse_polish_notation.PNG"/>
+        <img width="464" height="104" src="img/about/bytecode.PNG"/>
+        <section class="slide" id="compiler">
+            <h3>Compilado?</h3>
+            <p>
+                Compilado &eacute; o nome que se d&aacute; ao c&oacute;digo processado por um Compilador, que &eacute; um programa que &quot;traduz&quot; o c&oacute;digo de uma linguagem de programa&ccedil;&atilde;o para linguagem de m&aacute;quina ou para uma a ser interpretada.
+            </p>
+        </section>
+        <section class="slide" id="jvm">
+            <h3>JVM?</h3>
+            <p>
+                A JVM &eacute; (Java Virtual Machine) &eacute; um programa que sabe interpretar e executar um programa Java (j&aacute; em <em>bytecode</em>)
+            </p>
+        </section>
+    </section>
+
+    <section class="slide" id="compiler-process">
+        <h2>Fluxo do compilador</h2>
+        <section class="slide">
+            <h3>Compilador</h3>
+            <img src="img/infographs/compilers-fina.PNG"/>
+        </section>
+    </section>
+
+    <section class="slide" id="jvm-process">
+        <h2>Fluxo da JVM</h2>
+        <section class="slide">
+            <h3>JVM</h3>
+            <img src="img/infographs/java-process.PNG"/>
+        </section>
+    </section>
+
+    <section class="slide" id="jdk8">
+      <h2>Anatomia JDK 8</h2>
+      <table id="jdk_table" summary="" class="table" cellspacing="0" cellpadding="0">
+          <caption>Retirado de <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/">https://docs.oracle.com/javase/8/docs/</a></caption>
+          <!-- Row 1 of 9 -->
+          <tbody>
+              <tr valign="top">
+                  <td class="tdleftside" rowspan="9">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/index.html#jre-jdk" class="package">JDK</a>
+                  </td>
+                  <td rowspan="2">&nbsp;</td>
+                  <td class="tdhead" title="Java programming language">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/language/index.html" class="ahead">
+                          <b>Java Language
+                          </b>
+                      </a>
+                  </td>
+                  <!-- Java Language -->
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#BDBEC0">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/language/index.html" class="atext">Java Language
+                                      </a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+                  <td rowspan="5">&nbsp;</td>
+                  <td rowspan="4">&nbsp;</td>
+              </tr>
+              <!-- Row 2 of 9 -->
+              <tr valign="top">
+                  <td class="tdhead" title="Tools and Tool APIs">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html" class="ahead">
+                          <b>Tools &amp;
+                              <br> Tool APIs</b>
+                      </a>
+                  </td>
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java runtime launcher">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html" class="atext">java</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java compiler">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/javac/index.html" class="atext">javac</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java documentation generator">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/javadoc/index.html" class="atext">javadoc</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java archive tool">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jar/index.html" class="atext">jar</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java class file disassembler">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javap.html" class="atext">javap</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java class dependency analyzer">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdeps.html" class="atext">jdeps</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Scripting tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#scripting" class="atext">Scripting</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Security tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#security" class="atext">Security</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Monitoring and Management tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#monitor" class="atext">Monitoring</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="jconsole">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#jconsole" class="atext">JConsole</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java VisualVM">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/visualvm/index.html" class="atext">VisualVM</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java Mission Control">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jmc" class="atext">JMC</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java Flight Recorder" colspan="2">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jfr" class="atext">JFR</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java Platform Debugger Architecture">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/index.html" class="atext">JPDA</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java Virtual Machine Tool Interface">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jvmti/index.html" class="atext">JVM TI</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Interface Definition Language and RMI-IIOP tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#idl" class="atext">IDL</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Remote Method Invocation tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#rmi" class="atext">RMI</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Java DB">
+                                      <a target="_blank" rel="noopener" href="http://docs.oracle.com/javadb/index_jdk8.html" class="atext">Java DB
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#A3B8CB" title="Deployment, Plug-in and Web Start tools" colspan="2">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#deployment" class="atext">Deployment</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" colspan="2" bgcolor="#A3B8CB" title="Internationalization tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#intl" class="atext">Internationalization</a>
+                                  </td>
+                                  <td class="tdbody" colspan="2" bgcolor="#A3B8CB" title="Java Web Services Tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#webservices" class="atext">Web Services
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" colspan="3" bgcolor="#A3B8CB" title="Troubleshooting tools">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/index.html#troubleshoot" class="atext">Troubleshooting</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+              </tr>
+              <!-- Row 3 of 9 -->
+              <tr valign="top">
+                  <td rowspan="7" class="tdleftside" title="Java Runtime Environment">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/index.html#jre-jdk" class="package">JRE</a>
+                  </td>
+                  <td class="tdhead" title="Deployment Technologies">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/index.html" class="ahead">
+                          <b>Deployment</b>
+                      </a>
+                  </td>
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#ED9B4F" title="Java Web Start">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/javaws/index.html" class="atext">Java Web Start
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#ED9B4F" title="Java Plug-In for browsers">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/applet_dev_guide.html" class="atext">Applet / Java Plug-in</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+              </tr>
+              <!-- Row 4 of 9 -->
+              <tr valign="top">
+                  <td class="tdhead" rowspan="2" title="User Interface programming">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/index.html#userinterface" class="ahead">
+                          <b>User Interface
+                              <br> Toolkits
+                          </b>
+                      </a>
+                  </td>
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#E76F00" title="JavaFX">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/javafx/" class="atext">JavaFX</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+              </tr>
+              <!-- Row 5 of 9 -->
+              <tr valign="top">
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#E76F00" title="Graphical user interface components">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/swing/index.html" class="atext">Swing</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#E76F00" title="2D graphics, text and images">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/2d/index.html" class="atext">Java 2D</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#E76F00" title="Abstract Window Toolkit">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/awt/index.html" class="atext">AWT</a>
+                                  </td>
+                                  <td class="tdbody" colspan="2" bgcolor="#E76F00" title="Assistive technologies for user interfaces">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/access/index.html" class="atext">Accessibility</a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#E76F00" title="Drag and drop data transfer">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/dragndrop/index.html" class="atext">Drag and Drop
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#E76F00" title="Input Method Framework">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/imf/index.html" class="atext">Input Methods</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#E76F00" title="Image input/output API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/imageio/index.html" class="atext">Image I/O
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#E76F00" title="Print service API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jps/index.html" class="atext">Print Service
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#E76F00" title="MIDI API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/sound/index.html" class="atext">Sound</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+                  <td class="tdrightside" rowspan="4" title="Java SE API. See API Documentation section for more links.">
+                      <a target="_blank" rel="noopener" href="api/index.html" class="package">Java SE
+                          <br /> API
+                      </a>
+                  </td>
+              </tr>
+              <!-- Row 6 of 9 -->
+              <tr valign="top">
+                  <td class="tdhead" title="Integration libraries">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/index.html#integration" class="ahead">
+                          <b>Integration
+                              <br> Libraries
+                          </b>
+                      </a>
+                  </td>
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#B2BC00" title="CORBA Interface Definition Language API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/idl/index.html" class="atext">IDL</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#B2BC00" title="Java Database Connectivity API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/index.html" class="atext">JDBC</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#B2BC00" title="Java Naming and Directory Interface API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jndi/index.html" class="atext">JNDI</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#B2BC00" title="Remote Method Invocation API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/index.html" class="atext">RMI</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#B2BC00" title="RMI interfaces over IIOP">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/rmi-iiop/index.html" class="atext">RMI-IIOP</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#B2BC00" title="Scripting for the Java Platform">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/index.html" class="atext">Scripting</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+                  <td class="tdrightside" rowspan="3" title="Compact Profiles">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/compactprofiles/index.html" class="package">Compact
+                          <br> Profiles</a>
+                  </td>
+              </tr>
+              <!-- Row 7 of 9 -->
+              <tr valign="top">
+                  <td class="tdhead" title="Base libraries other than java.lang and java.util">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/index.html#otherbase" class="ahead">
+                          <b>Other Base
+                              <br> Libraries
+                          </b>
+                      </a>
+                  </td>
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#C69200" title="Java Beans component API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/beans/index.html" class="atext">Beans</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Security API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/index.html" class="atext">Security</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Object Serialization">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/serialization/index.html" class="atext">Serialization</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Package extension mechanism">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/extensions/index.html" class="atext">Extension Mechanism
+                                      </a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#C69200" title="Java Management Extensions">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jmx/index.html" class="atext">JMX</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" nowrap="nowrap" title="Java API for XML Processing">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/xml/index.html" class="atext">XML JAXP</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Networking API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/net/index.html" class="atext">Networking</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Endorsed Standards Override Mechanism">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/standards/index.html" class="atext">Override Mechanism
+                                      </a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#C69200" title="Java Native Interface">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jni/index.html" class="atext">JNI</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Date and Time">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/datetime/index.html" class="atext">Date and Time
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Input/Output API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/io/index.html" class="atext">Input/Output</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#C69200" title="Internationalization of applications">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/intl/index.html" class="atext">Internationalization</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+              </tr>
+              <!-- Row 8 of 9 -->
+              <tr valign="top">
+                  <td class="tdhead" title="java.lang and java.util libraries">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/index.html#langutil" class="ahead">
+                          <b>lang and util
+                              <br> Base Libraries</b>
+                      </a>
+                  </td>
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" colspan="5" bgcolor="#FFC726" title="java.lang and java.util packages">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/lang/index.html" class="atext">lang and util
+                                      </a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Math classes">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/math/index.html" class="atext">Math</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Collections framework">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html" class="atext">Collections</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Reference Objects API">
+                                      <a target="_blank" rel="noopener" href="api/java/lang/ref/package-summary.html" class="atext">Ref Objects
+                                      </a>
+                                  </td>
+                                  <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Regular expressions">
+                                      <a target="_blank" rel="noopener" href="api/java/util/regex/package-summary.html" class="atext">Regular Expressions
+                                      </a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Logging API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/logging/index.html" class="atext">Logging</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="JVM Monitoring and Management">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/index.html" class="atext">Management</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Instrumentation">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/instrumentation/index.html" class="atext">Instrumentation</a>
+                                  </td>
+                                  <td class="tdbody" colspan="2" bgcolor="#FFC726" title="Concurrency utilities">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/index.html" class="atext">Concurrency Utilities
+                                      </a>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Reflection API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/index.html" class="atext">Reflection</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Package version identification">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/versioning/index.html" class="atext">Versioning</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Preferences API">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/preferences/index.html" class="atext">Preferences API</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Java archive file format">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jar/index.html" class="atext">JAR</a>
+                                  </td>
+                                  <td class="tdbody" bgcolor="#FFC726" title="Zip and gzip file formats">
+                                      <a target="_blank" rel="noopener" href="api/java/util/zip/package-summary.html" class="atext">Zip</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+              </tr>
+              <!-- Row 9 of 9 -->
+              <tr valign="top">
+                  <td class="tdhead" title="Java Virtual Machine">
+                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/index.html" class="ahead">
+                          <b>Java Virtual Machine
+                          </b>
+                      </a>
+                  </td>
+                  <td>
+                      <table class="tablerows" summary="">
+                          <tbody>
+                              <tr>
+                                  <td class="tdbody" bgcolor="#C5D5A9">
+                                      <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/index.html" class="atext">Java HotSpot Client and Server VM</a>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+              </tr>
+          </tbody>
+      
+      
+      </table>
+    </section>
+
+    <section class="slide" id="the-end-001">
+        <h1>Fim da Aula 1</h1>
+    </section>
+
+    <!-- ====================================
+                    AULA 002
+    ===================================== -->
+    <section class="slide" id="logic">
+        <h2>O que é Lógica?</h2>
+        <section class="slide" id="filos">
+            <h3>Segundo a Filosofia</h3>
+            <blockquote>
+                Parte da filosofia que trata das formas do pensamento em geral (dedução, indução, hipótese, inferência etc.) e das operações intelectuais que visam à determinação do que é verdadeiro ou não.
+            </blockquote>
+        </section>
+        <section class="slide" id="info">
+            <h3>Segundo a Informática</h3>
+            <blockquote>
+                Organização e planejamento das instruções, assertivas etc. em um algoritmo, a fim de viabilizar a implantação de um programa.
+            </blockquote>
+        </section>
+    </section>
+
+    <section class="slide" id="algorithm">
+        <h2>Certo, mas e o que é algoritmo?</h2>
+        <p>
+            É uma sequência de passos que visam atingir um objetivo bem definido.
+        </p>
+        <img src="img/algorithm/algorithm.png">
+    </section>
+
+    <section class="slide" id="algorithm-example">
+        <h2>Exemplo de algoritmo no mundo real</h2>
+        <img src="img/algorithm/algo-example.png"/>
+    </section>
+
+    <section class="slide" id="ide">
+        <h2>Finalmente, uma IDE!</h2>
+        <p>
+            IDE ou Integrated Development Environment (Ambiente de Desenvolvimento Integrado) é um programa feito para fazer outros programas. Este tipo de software provê uma série de ferramentas e facilidades para que os desenvolvedores possam ter foco em programar sua aplicação.
+        </p>
+        <p>
+            A que utilizaremos no curso se chama Eclipse. É uma das mais conhecidas ferramentas de desenvolvimento do ecossistema Java e é open-source e gratuita. 
+        </p>
+        <img src="img/eclipse/eclipse.jpg"/>
+    </section>
+
+    <section class="slide" id="variables">
+        <h2>As variáveis</h2>
+        <p>
+            Variável é um contêiner que abriga um valor que pode ser usado dentro de um programa. Seu valor pode ser alterado conforme o andamento da aplicação.
+        </p>
+        <p>
+            Toda variável precisa ter um TIPO.
+        </p>
+        <section class="slide" id="variables-examples">
+            <p>
+                Exemplos de variáveis de um programa Java:
+            </p>
+            <pre>
+                saldo;
+                cartaoDeCredito;
+                correntista;
+            </pre>
+        </section>
+        <section class="slide" id="variables-good">
+            <h3>Boas Práticas</h3>
+            <ul>
+                <li>Nomes de variáveis descritivos e camelCase (ex.: minhaVariavelLegal);</li>
+                <li>Nome deve come&ccedil;ar com letras min&uacute;sculas, $ ou _;</li>
+                <li>Nome deve ser um substantivo, exceto em caso de booleanos, que geralmente s&atilde;o escritos em forma de pergunta (ex.: ehValido, temDependencia)</li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="slide" id="constants">
+        <h2>Constantes</h2>
+        <p>
+            Constante funciona quase como uma variável: ela pode conter um valor dentro do programa, mas ele é imutável.
+        </p>
+        <p>
+            Uma vez definido seu valor, este não poderá mudar!
+        </p>
+        <section class="slide" id="constants-examples">
+            <p>
+                Exemplos de constantes de um programa Java:
+            </p>
+            <pre>
+                DATA_DE_MATRICULA;
+                CURSO;
+                CODIGO_DE_ACESSO;
+            </pre>
+        </section>
+        <section class="slide" id="constants-examples">
+                <h3>Boas Práticas</h3>
+                <ul>
+                    <li>Nomes de constantes descritivos e caixa-alta;</li>
+                    <li>A separação dos nomes deve ser feita por underlines ( _ )</li>
+                    <li>Nome deve ser um substantivo, exceto em caso de booleanos, que geralmente s&atilde;o escritos em forma de pergunta (ex.: ehValido, temDependencia)</li>
+                </ul>
+        </section>
+    </section>
+
+    <section class="slide" id="java-types">
+        <h2>Tipos do Java </h2>
+        <img src="img/java-types/types.png">
+    </section>
+
+    <section class="slide" id="operators">
+        <h2>Operadores</h2>
+        <ul>
+            <li class="slide" id="arithmetical">
+                Aritm&eacute;tico (+, -, *, /, %)
+                <ul>
+                    <li>"+" soma dois números ou concatena Strings</li>
+                    <li>"-" subtrai um número por outro</li>
+                    <li>"*" multiplica um número por outro</li>
+                    <li>"/" divide um número por outro</li>
+                    <li>"%" divide um número por outro e retorna o resto da divisão</li>
+                </ul>
+            </li>
+            <li class="slide" id="attribution">
+                Atribui&ccedil;&atilde;o (=, +=, -=, *=, /=, %=)
+                <ul>
+                    <li>"=" -> x = y: Atribui o valor de y para x</li>
+                    <li>"+=" -> x += y: Realiza a operação x = x + y</li>
+                    <li>"-=" -> x += y: Realiza a operação x = x - y</li>
+                    <li>"*=" -> x += y: Realiza a operação x = x * y</li>
+                    <li>"/=" -> x += y: Realiza a operação x = x / y</li>
+                    <li>"%=" -> x += y: Realiza a operação x = x % y</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="operators2">
+        <h2>Operadores</h2>
+        <ul>
+            <li class="slide" id="relational">
+                Relacional (==, !=, &lt;, &lt;=, &gt;, &gt;=)
+                <ul>
+                    <li>"==" Compara valores</li>
+                    <li>"!=" Compara se os valores são diferentes</li>
+                    <li>"&lt;" Compara se um valor é menor que o outro</li>
+                    <li>"&lt;=" Compara se um valor é menor OU igual ao outro</li>
+                    <li>"&gt;" Compara se um valor é maior que o outro</li>
+                    <li>"&gt;=" Compara se um valor é maior OU igual ao outro</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="the-end-002">
+        <h1>Fim da Aula 2</h1>
+    </section>
+
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <!-- End extension snippets. -->
+  </div>
+
+<!-- Required JS files. -->
+<script src="jquery.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+    $.deck('.slide');
+  });
+</script>
+</body>
+</html>
