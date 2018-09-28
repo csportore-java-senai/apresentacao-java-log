@@ -691,11 +691,122 @@
                     <li>"&gt;=" Compara se um valor é maior OU igual ao outro</li>
                 </ul>
             </li>
+            <li class="slide" id="logical">
+                Lógico (&amp;&amp;, ||, !)
+                <ul>
+                    <li>"&amp;&amp;" Retorna verdadeiro somente se ambos os lados da comparação forem verdadeiros</li>
+                    <li>"||" Retorna verdadeiro se um dos lados da comparação for verdadeiro</li>
+                    <li>"!" Serve para inverter o valor de algum booleano</li>
+                </ul>
+            </li>
+            <li class="slide" id="unary">
+                Decremento/Incremento(--, ++)
+                <ul>
+                    <li>"--" -> --x: Retorna o resultado APÓS realizar o decremento</li>
+                    <li>"--" -> x--: Retorna o resultado ANTES de realizar o decremento</li>
+                    <li>"++" -> ++x: Retorna o resultado APÓS realizar o incremento</li>
+                    <li>"++" -> x++: Retorna o resultado ANTES de realizar o incremento</li>
+                </ul>
+            </li>
         </ul>
     </section>
 
-    <section class="slide" id="the-end-002">
-        <h1>Fim da Aula 2</h1>
+    <section class="slide" id="truth-table">
+        <h2>Tabela Verdade</h2>
+        <img src="img/truth-tables/truth-tables.png"/>
+    </section>
+    
+    <section class="slide" id="structure1">
+        <!-- source: https://richland.instructure.com/courses/961545/pages/understand-the-three-basic-structures-sequence-selection-and-loop -->
+        <h2>Estruturas</h2>
+        
+        <p>Uma estrutura é uma unidade básica de lógica de programação; cada estrutura é uma sequência, seleção ou laço (loop).</p>
+        
+        <section class="slide" id="sequence">
+            <h3>Sequência</h3>
+            <p>É uma estrutura na qual todos os comandos são executados em ordem, sem desvios.</p>
+            <pre>
+                x = 2;
+                y = 4;
+                z = x + y;
+            </pre>
+        </section>
+    </section>
+
+    <section class="slide" id="structure2">
+        <h2>Estruturas</h2>
+        <section class="slide" id="decision1">
+            <h3>Seleção/Decisão</h3>
+            <section class="slide" id="if">
+                <p>
+                    A instrução "IF" serve para separar o fluxo do programa em diversas partes. Caso uma expressão seja "VERDADEIRA", o código que está dentro do bloco será executado. Caso contrário, não.
+                </p>
+                <pre>
+                    if (condicaoVerdadeira) {
+                        // código
+                    }
+                </pre>
+            </section>
+            <section class="slide" id="else">
+                <p>
+                    A instrução "ELSE" serve para oferecer um caminho alternativo caso o resultado da expressão dentro do "IF" tenha sido "FALSO".
+                </p>
+                <pre>
+                    if (condicaoVerdadeira) {
+                        // código 
+                    } else {
+                        // código alternativo
+                    }   
+                </pre>
+            </section>
+            <section class="slide" id="else-if">
+                <p>
+                    A instrução "ELSE IF" serve para que uma outra expressão seja avaliada caso o resultado das anteriores tenha sido "FALSO".
+                </p>
+                <pre>
+                    if (condicaoVerdadeira) {
+                        // código
+                    } else if (outraCondicaoVerdadeira) {
+                        // código de outra condicao
+                    }
+                </pre>
+            </section>
+        </section>
+    </section>
+
+    <section class="slide" id="structure3">
+        <h2>Estruturas</h2>
+        <section class="slide" id="decision2">
+            <h3>Seleção/Decisão</h3>
+            <section class="slide" id="switch">
+                <p>
+                    A instrução "SWITCH" tem funcionamento bem parecido com "IF/ELSE IF": 
+                </p>
+                <pre>
+                    switch (valor) {
+                        case alto:
+                            // código
+                            break;
+                        case baixo:
+                            // código
+                            break;
+                        default:
+                            // código
+                            break;
+                    }
+                </pre>
+                <p>
+                    Esta instrução aceita os tipos primitivos: byte, short, char e int;
+                </p>
+                <p>
+                    Também aceita os tipos: String, Enum e as classes Wrappers.
+                </p>
+            </section>
+        </section>
+    </section>
+
+    <section class="slide" id="the-end">
+        <h1>Fim</h1>
     </section>
 
     <!-- End slides. -->
