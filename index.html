@@ -50,6 +50,28 @@
                     AULA 001 
     ===================================== -->
     <!-- SOBRE -->
+    <section class="slide" id="summary-1">
+        <h2>Sumário 1</h2>
+        <ul>
+            <li><a href="#about">Sobre o Java</a></li>
+            <li><a href="#companies">Beleza, mas quem usa Java?</a></li>
+            <li><a href="#how">Como ele funciona?</a></li>
+            <li><a href="#compiler-process">Fluxo do compilador</a></li>
+            <li><a href="#jvm-process">Fluxo da JVM</a></li>
+            <li><a href="#jdk8">Anatomia JDK 8</a></li>
+            <li><a href="#dir-structure1">Diretórios da JDK</a></li>
+            <li><a href="#operators">Operadores</a>
+                <ul>
+                    <li><a href="#arithmetical">Aritm&eacute;tico (+, -, *, /, %)</a></li>
+                    <li><a href="#attribution">Atribui&ccedil;&atilde;o (=, +=, -=, *=, /=, %=)</a></li>
+                    <li><a href="#relational">Relacional (==, !=, &lt;, &lt;=, &gt;, &gt;=)</a></li>
+                    <li><a href="#logical">Lógico (&amp;&amp;, ||, !)</a></li>
+                    <li><a href="#unary">Decremento/Incremento(--, ++)</a></li>
+                </ul>
+            </li>
+            <li><a href="#compiler-process">Fluxo do compilador</a></li>
+        </ul>
+    </section>
 
     <section class="slide" id="about">
         <h2>Sobre</h2>
@@ -542,6 +564,94 @@
       </table>
     </section>
 
+    <section class="slide" id="dir-structure1">
+        <h2>Diretórios da JDK</h2>
+        <pre>
+        jdk1.8.0
+            bin
+                 java*
+                 javac*
+                 javap*
+                 javah*
+                 javadoc*
+            lib
+                 tools.jar
+                 dt.jar
+            jre
+                 bin
+                      java*
+                 lib
+                      applet
+                      ext
+                           jfxrt.jar
+                           localdata.jar
+                      fonts
+                      security
+                      sparc
+                           server
+                           client
+                      rt.jar
+                      charsets.jar
+       </pre>
+
+    </section>
+
+    <section class="slide" id="dir-structure2">
+        <p>
+            /jdk1.8.0
+            Root directory of the JDK software installation. Contains copyright, license, and README files. Also contains src.zip, the archive of source code for the Java platform.
+        </p>
+        <p> 
+            /jdk1.8.0/bin
+            Executables for all the development tools contained in the JDK. The PATH environment variable should contain an entry for this directory.
+        </p>
+        <p> 
+            /jdk1.8.0/lib
+            Files used by the development tools. Includes tools.jar, which contains non-core classes for support of the tools and utilities in the JDK. Also includes dt.jar, the DesignTime archive of BeanInfo files that tell interactive development environments (IDEs) how to display the Java components and how to let the developer customize them for an application.
+        </p>
+        <p>
+            /jdk1.8.0/jre
+            Root directory of the Java Runtime Environment (JRE) used by the JDK development tools. The runtime environment is an implementation of the Java platform. This is the directory referred to by the java.home system property.
+        </p>
+        <p>
+            /jdk1.8.0/jre/bin
+            Executable files for tools and libraries used by the Java platform. The executable files are identical to files in /jdk1.8.0/bin. The java launcher tool serves as an application launcher (and replaced the earlier jre command that shipped with 1.1 releases of the JDK). This directory does not need to be in the PATH environment variable.
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib
+            Code libraries, property settings, and resource files used by the JRE. For example rt.jar contains the bootstrap classes, which are the run time classes that comprise the Java platform core API, and charsets.jar contains the character-conversion classes. Aside from the ext subdirectory, there are several additional resource subdirectories not described here.
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib/ext
+            Default installation directory for extensions to the Java platform. This is where the JavaHelp JAR file goes when it is installed, for example. This directory includes the jfxrt.jar file, which contains the JavaFX runtime libraries and the localedata.jar file, which contains the locale data for the java.text and java.util packages. See The Extension Mechanism at
+            http://docs.oracle.com/javase/8/docs/technotes/guides/extensions/index.html
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib/security
+            Contains files used for security management. These include the security policy java.policy and security properties java.security files.
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib/sparc
+            Contains the .so (shared object) files used by the Oracle Solaris release of the Java platform.
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib/sparc/client
+            Contains the .so file used by the Java HotSpot VM client, which is implemented with Java HotSpot VM technology. This is the default Java Virtual Machine (JVM).
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib/sparc/server
+            Contains the .so file used by the Java HotSpot VM server.
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib/applet
+            JAR files that contain support classes for applets can be placed in the lib/applet/ directory. This reduces startup time for large applets by allowing applet classes to be preloaded from the local file system by the applet class loader and provides the same protections as though they had been downloaded over the Internet.
+        </p>
+        <p>
+            /jdk1.8.0/jre/lib/fonts
+            Font files used by the platform.
+        </p>
+    </section>
+
     <section class="slide" id="the-end-001">
         <h1>Fim da Aula 1</h1>
     </section>
@@ -618,7 +728,7 @@
     </section>
 
     <section class="slide" id="constants">
-        <h2>Constantes</h2>
+        <h2>Constantes (primitivas)</h2>
         <p>
             Constante funciona quase como uma variável: ela pode conter um valor dentro do programa, mas ele é imutável.
         </p>
@@ -630,8 +740,8 @@
                 Exemplos de constantes de um programa Java:
             </p>
             <pre>
-                DATA_DE_MATRICULA;
-                CURSO;
+                PI;
+                NUMERO_SALA;
                 CODIGO_DE_ACESSO;
             </pre>
         </section>
@@ -715,7 +825,7 @@
         <h2>Tabela Verdade</h2>
         <img src="img/truth-tables/truth-tables.png"/>
     </section>
-    
+
     <section class="slide" id="structure1">
         <!-- source: https://richland.instructure.com/courses/961545/pages/understand-the-three-basic-structures-sequence-selection-and-loop -->
         <h2>Estruturas</h2>
@@ -806,97 +916,348 @@
     </section>
 
     <section class="slide" id="arrays">
-        <h2>Arrays</h2>
+            <h2>Arrays</h2>
+            <p>
+                Arrays (Vetores) em Java são estruturas de dados que comportam diversos valores (diferentes ou não) com o mesmo tipo de dado.
+            </p>
+            <pre>
+                // Declarando
+                int vetor[];
+                int[] vetor;
+    
+                // Inicializando
+                int vetor[] = new int[5];
+                int[] vetor = {1,2,3,4,5};
+    
+                //...em caso de Objetos
+                String vetor[];
+                String[] vetor;
+    
+                // Inicializando
+                String vetor[] = new String[5];
+                String[] vetor = new String[] {""};
+                String[] vetor = {""};    
+            </pre>
+        </section>
+
+    <section class="slide" id="structure4">
+        <!-- source: https://richland.instructure.com/courses/961545/pages/understand-the-three-basic-structures-sequence-selection-and-loop -->
+        <h2>Estrutura</h2>
+        <section class="slide" id="looping1">
+            <h3>Laço/Repetição (Looping)</h3>
+            <section class="slide" id="while">
+                <p>
+                    <!--TODO: Colocar um texto explicando while ou será melhor uma figura? -->
+                    No laço WHILE, você coloca uma expressão ou variável cujo resultado é um boleano. 
+                    Enquanto esse resultado for verdadeiro, o laço continua.
+                    É preciso colocar uma condição de saída em algum lugar dentro do laço!
+                </p>
+                <pre>
+                    while (condicaoVerdadeira) {
+                        ...
+                    }
+                </pre>
+            </section>
+            <section class="slide" id="do-while">
+                <p>
+                    Este laço é usado quando você quer que o while rode ao menos uma vez.
+                </p>
+                <pre>
+                    do {
+                        ...
+                    } while (condicaoVerdadeira);
+                </pre>
+            </section>
+        </section>
+    </section>
+
+    <section class="slide" id="structure5">
+        <!-- source: https://richland.instructure.com/courses/961545/pages/understand-the-three-basic-structures-sequence-selection-and-loop -->
+        <h2>Estrutura</h2>
+        <section class="slide" id="looping2">
+            <h3>Laço/Repetição (Looping)</h3>
+            <section class="slide" id="for">
+                <p>
+                    Outra forma de repetir uma parte de código é pelo laço FOR. Geralmente ele é recomendado por sua organização e se você sabe o número de iterações que vão acontecer.
+                </p>
+                <pre>
+                    for (int i = 0; i > 10; i++) {
+                        ...
+                    }
+                </pre>
+                <p>
+                    for (<span style="color:white; font-weight: bold; background-color:crimson">int i = 0</span>; i > 10; i++): Inicialização de uma variável.
+                </p>
+                <p>
+                    for (int i = 0;<span style="color:white; font-weight: bold; background-color:crimson"> i > 10</span>; i++): Fornecemos uma condição de continuidade do loop (enquanto a expressão retornar verdadeiro, o loop continua).
+                </p>
+                <p>
+                    for (int i = 0; i > 10;<span style="color:white; font-weight: bold; background-color:crimson"> i++</span>): Incrementa a variável do início.
+                </p>
+            </section>
+            <section class="slide" id="foreach">
+                <p>
+                    Este último laço é feito especialmente para iterar sobre Coleções. Assunto que será abordado mais à frente.
+                </p>
+                <pre>
+                    for (item : itens) {
+                        ...
+                    }
+                </pre>
+            </section>
+        </section>
+    </section>
+
+    <!-- TODO: Colocar isso aqui também: http://www.ntu.edu.sg/home/ehchua/programming/java/j9c_packageclasspath.html -->
+
+    <section class="slide" id="collections">
+        <h2>Coleção</h2>
         <p>
-            Arrays (Vetores) em Java são estruturas de dados que comportam diversos valores (diferentes ou não) com o mesmo tipo de dado.
+            Coleção é um tipo de estrutura do Java que nos ajuda a lidar com diversos tipos de conjunto de dados.
+        </p>
+        <img src="img/collections/collection.png"/>
+    </section>
+
+    <!-- TODO Fazer uma tabela Lists vs Sets -->
+    <section class="slide" id="lists">
+        <h2>Lists</h2>
+        <p>
+            Lista é uma estrutura ordenada e expansível de elementos. Possui implementações diferentes (exemplos abaixo) para cada situação.
+            É importante salientar a diferença entre TAMANHO e CAPACIDADE de uma lista: <br />
+            Tamanho é o número de elementos que a lista contém.
+            Capacidade é a quantidade de elementos que ela pode conter.
+        </p>
+        <section class="slide" id="arraylists">
+            <h3>
+                ArrayList
+            </h3>
+            <p>
+                Ela funciona, basicamente, como um array, com índices para cada elemento.
+                As operações de inserção no final da lista e a operação "get" é bem rápida.
+                CONCLUSÃO: Use caso você tenha que ficar realizando buscas na sua lista.
+            </p>
+        </section>
+        
+    </section>
+
+    <section class="slide" id="sets">
+        <h2>Sets</h2>
+        <p>
+            Set (Conjunto) é uma estrutura que agrupa diversos elementos do mesmo tipo, mas que não se repetem e não garantem ordem específica.
+        </p>
+        <section class="slide" id="hashset">
+            <h3>
+                HashSet
+            </h3>
+            <p>
+                É a implementação mais simples dos Sets, servindo para propósitos gerais.
+            </p>
+        </section>
+    </section>
+
+    <section class="slide" id="maps">
+        <h2>Maps</h2>
+        <p>
+            Map (Mapa) é uma estrutura que agrupa diversos elementos na forma de "chave/valor", onde o primeiro parâmetro representa o tipo a ser usado como chave
+            e o segundo, o valor (quase como um array). Esse esquema permite buscar os elementos (dado que você já possua a chave dele) de forma muito rápida.
+            A chave JAMAIS pode ser repetida, mas 
+        </p>
+        <!-- https://www.devmedia.com.br/hashmap-java-trabalhando-com-listas-key-value/29811 
+                https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
+                https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
+                https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html -->
+
+        <!-- Incluir slide de Load factor para Java Avançado-->
+        <section class="slide" id="hashmap">
+            <h3>
+                HashMap
+            </h3>
+            <p>
+                É a implementação mais básica de Map. Permite usar valores nulos para chave ou valor.
+            </p>
+        </section>
+    </section>
+
+    <section class="slide" id="exceptions">
+        <h2>Exce&ccedil;&otilde;es e o bloco try/catch/finally</h2>
+        <p>
+            Às vezes as coisas não ocorrem exatamente como o esperado...
+        </p>
+        <p>
+            Fluxos de exceção podem acontecer por diversas causas, como tentar chamar um método em uma referência nula ou tentar converter uma frase com apenas letras em número.
+            Para esses casos, usamos o bloco try/catch(e às vezes, finally), para capturarmos essas exceções e tratarmos de alguma forma.
         </p>
         <pre>
-            // Declarando
-            int vetor[];
-            int[] vetor;
-
-            // Inicializando
-            int vetor[] = new int[5];
-            int[] vetor = {1,2,3,4,5};
-
-            //...em caso de Objetos
-            String vetor[];
-            String[] vetor;
-
-            // Inicializando
-            String vetor[] = new String[5];
-            String[] vetor = new String[] {""};
-            String[] vetor = {""};    
+            try {
+                // codigo perigoso
+            } catch (Exception e) {
+                // codigo salvador
+                //... ou nao
+            } finally {
+                // independente do que acontecer, o codigo aqui dentro sempre vai ser executado
+            }
         </pre>
     </section>
 
-<section class="slide" id="structure4">
-    <!-- source: https://richland.instructure.com/courses/961545/pages/understand-the-three-basic-structures-sequence-selection-and-loop -->
-    <h2>Estrutura</h2>
-    <section class="slide" id="looping1">
-        <h3>Laço/Repetição (Looping)</h3>
-        <section class="slide" id="while">
+    <section class="slide" id="type-conversion">
+        <h2>Conversão entre tipos</h2>
+        <p>
+            No Java existem dois tipos de dados: primitivo e referência. Primitivos são: int, long, float, boolean, etc. Já as referências podem ser Classes, Interfaces e arrays.
+        </p>
+        <p>
+            As conversões entre eles podem ser:
+        </p>
+        <section class="slide" id="implicit">
+            <h3>
+                Implícitas
+            </h3>
             <p>
-                <!--TODO: Colocar um texto explicando while ou será melhor uma figura? -->
-                No laço WHILE, você coloca uma expressão ou variável cujo resultado é um boleano. 
-                Enquanto esse resultado for verdadeiro, o laço continua.
-                É preciso colocar uma condição de saída em algum lugar dentro do laço!
+                Elas acontecem sem que você precise dar um comando específico. A própria JVM e compilador cuidam disso. Como por exemplo:
             </p>
             <pre>
-                while (condicaoVerdadeira) {
-                    ...
-                }
-            </pre>
-        </section>
-        <section class="slide" id="do-while">
-            <p>
-                Este laço é usado quando você quer que o while rode ao menos uma vez.
-            </p>
-            <pre>
-                do {
-                    ...
-                } while (condicaoVerdadeira);
-            </pre>
-        </section>
-    </section>
-</section>
+                int num1 = 10;
+                double num2 = 2;
 
-<section class="slide" id="structure5">
-    <!-- source: https://richland.instructure.com/courses/961545/pages/understand-the-three-basic-structures-sequence-selection-and-loop -->
-    <h2>Estrutura</h2>
-    <section class="slide" id="looping2">
-        <h3>Laço/Repetição (Looping)</h3>
-        <section class="slide" id="for">
-            <p>
-                Outra forma de repetir uma parte de código é pelo laço FOR. Geralmente ele é recomendado por sua organização e se você sabe o número de iterações que vão acontecer.
-            </p>
-            <pre>
-                for (int i = 0; i > 10; i++) {
-                    ...
-                }
+                num1 / num2; // Acaba gerando um double 
             </pre>
-            <p>
-                for (<span style="color:white; font-weight: bold; background-color:crimson">int i = 0</span>; i > 10; i++): Inicialização de uma variável.
-            </p>
-            <p>
-                for (int i = 0;<span style="color:white; font-weight: bold; background-color:crimson"> i > 10</span>; i++): Fornecemos uma condição de continuidade do loop (enquanto a expressão retornar verdadeiro, o loop continua).
-            </p>
-            <p>
-                for (int i = 0; i > 10;<span style="color:white; font-weight: bold; background-color:crimson"> i++</span>): Incrementa a variável do início.
-            </p>
         </section>
-        <section class="slide" id="foreach">
+        <section class="slide" id="explicit">
+            <h3>
+                Explícitas
+            </h3>
             <p>
-                Este último laço é feito especialmente para iterar sobre Coleções. Assunto que será abordado mais à frente.
+                Nestas é preciso que o programador "diga" em qual tipo ele quer que a variável se transforme (também conhecido como "casting").
             </p>
             <pre>
-                for (item : itens) {
-                    ...
-                }
+                int num1 = 10;
+                double num2 = (double) num1;
             </pre>
         </section>
     </section>
-</section>
+
+    <section class="slide" id="type-conversion2">
+        <h2>Conversão entre tipos</h2>
+        <section class="slide" id="widening">
+            <h3>
+                Expansão (Widening)
+            </h3>
+            <p>
+                Esse tipo de conversão acontece quando o tipo da variável a guardar o resultado é MAIOR que os usados para realizar as operações. Como por exemplo:
+            </p>
+            <pre>
+                int num1 = 10;
+                long num2 = 2;
+
+                long resultado = num1 + num2;
+            </pre>
+        </section>
+        <section class="slide" id="narrowing">
+            <h3>
+                Estreitamento (Narrowing)
+            </h3>
+            <p>
+                Esse tipo de conversão acontece quando o tipo da variável a guardar o resultado é MENOR que os usados para realizar as operações. Como por exemplo:
+            </p>
+            <pre>
+                long num1 = 10;
+                long num2 = 1;
+
+                int resultado = num1 + num2;
+            </pre>
+        </section>
+    </section>
+    <section class="slide" id="type-conversion3">
+        <h2>Conversão entre tipos</h2>
+        <section class="slide" id="assignment">
+            <h3>
+                Assignment (Atribuição)
+            </h3>
+            <pre>
+                double x;
+                int  y = 50;
+                
+                x = y; // y é convertido para double
+            </pre>
+        </section>
+        <section class="slide" id="arithmetic-promotion">
+            <h3>
+                Arithmetic promotion (Promoção Aritmética)
+            </h3>
+            <pre>
+                int num1 =7;
+                double num2 = 24;
+                
+                double divisao = num1 / num2;  //num1 também é convertido para double
+                
+                byte b = 5;
+                byte++; //byte é convertido para int, e então o ++ é realizado
+            </pre>
+        </section>
+        <section class="slide" id="method-call">
+            <h3>
+                Method call (Chamada de método)
+            </h3>
+            <pre>
+                float f = 1.234f
+                double d = Math.cos(f);  //método cos() espera double, então f é convertido para double
+            </pre>
+        </section>
+    </section>
+
+    <section class="slide" id="methods">
+        <h2>M&eacute;todos</h2>
+        <p>
+            É uma coleção de comandos agrupados para realizar uma operação. A sentença declarativa dele é chamada de assinatura.
+            Um método pode manter o mesmo nome, mas não pode repetir: tipo do retorno, nome e parâmetros. Algo nessa lista anterior precisa diferir.
+            A este processo chamamos de Sobrecarga.
+        </p>
+        <p>
+            Parâmetro: Variáveis no método!
+            Argumento: Valor que é passado na chamada do método!
+        </p>
+        <pre>
+            <strong>public static void main(String[] args) {
+            
+            }
+            </strong>
+        </pre>
+        <ul>
+            <li>
+                public static: modificadores;
+            </li>
+            <li>
+                void: tipo de retorno;
+            </li>
+            <li>
+                main: nome do método;
+            </li>
+            <li>
+                String[]: tipo de argumento do método;
+            </li>
+            <li>
+                args: variável que aponta para o argumento;
+            </li>
+            <li>
+                {}: é chamado de corpo do método.
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="recursion">
+        <h2>Recursão</h2>
+        <p>
+            Enquanto um método chamar outro é uma prática bastante comum, isso abre a possibilidade de um método chamar ele próprio! A esta ação chamamamos de recursão.
+        </p>
+        <p>
+            É uma técnica que exige (normalmente) maior poder computacional do que um loop, por exemplo, mas para alguns problemas esse gasto é pequeno perto do benefício que temos ao escrever menos código.
+        </p>
+        <p>Exemplos comuns:</p>
+        <ul>
+            <li>Fatoriais</li>
+            <li>Sequencia de Fibonacci</li>
+            <li>Potenciação</li>
+        </ul>
+    </section>
 
     <section class="slide" id="the-end">
         <h1>Fim</h1>
